@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "homes/about" => "homes#about" ,as: "about"
 #post_imagesコントローラー
   resources :post_images, only: [:new, :create, :index, :show, :destroy] do
+    
+    resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
 #usersコントローラー
